@@ -46,6 +46,7 @@ avlNodePtr AvlTree::insert(avlNodePtr newNode, avlNodePtr root)
         root->right = insert(newNode, root->right);
     }
 
+#ifdef CONFIG_AVL
     root->height = 1+max(getHeight(root->left), getHeight(root->right));
     int balance = getBalance(root);
 
@@ -64,7 +65,7 @@ avlNodePtr AvlTree::insert(avlNodePtr newNode, avlNodePtr root)
         else
             root = rotateLeft(root);
     }
-
+#endif
     return root;
 }
 
@@ -77,6 +78,7 @@ avlNodePtr AvlTree::insert(int data)
     return this->root;
 }
 
+#ifdef CONFIG_AVL
 /*
 1. Rotate Right
 
@@ -164,6 +166,7 @@ avlNodePtr AvlTree::rotateRightLeft(avlNodePtr z)
     z->right = rotateRight(z->right);
     return rotateLeft(z);
 }
+#endif
 
 bool AvlTree::search(int data, avlNodePtr root)
 {
@@ -232,6 +235,7 @@ avlNodePtr AvlTree::remove(int data, avlNodePtr root)
         }
     }
 
+#ifdef CONFIG_AVL
     root->height = 1 + max(getHeight(root->left), getHeight(root->right));
 
     int balance = getBalance(root);
@@ -249,7 +253,7 @@ avlNodePtr AvlTree::remove(int data, avlNodePtr root)
         else
             root = rotateRightLeft(root);
     }
-
+#endif
     return root;
 }
 

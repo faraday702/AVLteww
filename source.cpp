@@ -5,6 +5,12 @@ using namespace std;
 
 int main()
 {
+
+#ifdef CONFIG_AVL
+    cout<<"AVL Tree"<<endl;
+#else
+    cout<<"BST"<<endl;
+#endif
     //Test Case
 	AvlTree avlt1;
     avlt1.findMin();

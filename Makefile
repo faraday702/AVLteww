@@ -1,6 +1,9 @@
 CC = g++
 #CFLAGS = -Wall -g
 
+#Flag for AVL tree else BST
+CFLAGS += -DCONFIG_AVL
+
 target: source.o avl.o
 	@$(CC) $(CFLAGS) -o source source.o avl.o
 	@source

@@ -20,12 +20,12 @@ public:
     AvlTree();
     avlNodePtr insert(avlNodePtr, avlNodePtr);
     avlNodePtr insert(int);
-
+#ifdef CONFIG_AVL
     avlNodePtr rotateRight(avlNodePtr);
     avlNodePtr rotateLeft(avlNodePtr);
     avlNodePtr rotateLeftRight(avlNodePtr);
     avlNodePtr rotateRightLeft(avlNodePtr);
-
+#endif
     bool search(int, avlNodePtr);
     bool search(int);
 
